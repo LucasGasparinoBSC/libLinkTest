@@ -5,11 +5,14 @@ module libFortran2
         subroutine doubleInnerProduct(n,s)
             implicit none
             integer(4), intent(in)  :: n
-            real(4),    intent(out) :: s(n)
+            real(4),    intent(out) :: s
             integer(4)              :: i, j
             real(4),    allocatable :: M1(:,:), M2(:,:)
+            print*, "Inside doubleInnerProduct"
             allocate(M1(n,n), M2(n,n))
+            print*, "Before call to genMatrix"
             call genMatrix(n,M1)
+            print*, "Before call to genMatrix"
             call genMatrix(n,M2)
             s = 0.0
 #ifdef USE_ACC

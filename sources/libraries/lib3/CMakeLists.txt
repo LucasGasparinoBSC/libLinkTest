@@ -1,14 +1,16 @@
 project(lib3)
 
 file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_LIST_DIR}/*.f90)
-set(SOURCES_DIR ${CMAKE_CURRENT_LIST_DIR}/sources)
+set(SOURCES_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
+#include_directories(${lib1_INCLUDE_DIRS} ${lib2_INCLUDE_DIRS})
 include_directories(${lib2_INCLUDE_DIRS})
 
 add_library(${PROJECT_NAME} ${LIBRARY_TYPE} ${SRC_FILES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
+##target_link_libraries(${PROJECT_NAME} lib2 lib1)
 target_link_libraries(${PROJECT_NAME} lib2)
 
 set(${PROJECT_NAME}_INCLUDE_DIRS ${SOURCES_DIR} CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)

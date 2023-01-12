@@ -1,7 +1,7 @@
 project(lib2)
 
 file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_LIST_DIR}/*.f90)
-set(SOURCES_DIR ${CMAKE_CURRENT_LIST_DIR}/sources)
+set(SOURCES_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
 include_directories(${lib1_INCLUDE_DIRS})
 
