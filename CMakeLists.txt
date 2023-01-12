@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 # Options
-option(USE_ACC "Enable use of OpenACC" OFF)
+option(USE_ACC "Enable use of OpenACC" ON)
 
 # Set the project name and languages
 project(libLinkTest LANGUAGES C CXX Fortran)

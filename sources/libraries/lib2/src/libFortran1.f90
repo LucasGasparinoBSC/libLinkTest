@@ -26,5 +26,8 @@ module libFortran1
 					M(i,j) = a(i) * b(j)
 				end do
 			end do
+#ifdef USE_ACC
+			!$acc end parallel loop
+#endif
 		end subroutine genMatrix
 end module libFortran1
