@@ -16,10 +16,10 @@ module libFortran2
             call genMatrix(n,M2)
             s = 0.0
 #ifdef USE_ACC
-            !$acc parallel loop collapse(2) reduction(+:s)
+            !$acc parallel loop collapse(2) reduction(+:s) present(M1,M2)
 #endif
-            do i = 1, n
-                do j = 1, n
+            do j = 1, n
+                do i = 1, n
                     s = s + M1(i,j)*M2(i,j)
                 end do
             end do

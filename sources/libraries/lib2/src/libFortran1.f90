@@ -22,10 +22,10 @@ module libFortran1
 			print*, "Calling genData"
 			call genData(n,a,b)
 #ifdef USE_ACC
-			!$acc parallel loop collapse(2)
+			!$acc parallel loop collapse(2) present(a,b,M)
 #endif
-			do i = 1, n
-				do j = 1, n
+			do j = 1, n
+				do i = 1, n
 					M(i,j) = a(i) * b(j)
 				end do
 			end do
